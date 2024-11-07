@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weekly Task Average Pie Chart</title>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+  <style>
+    table {
+      width: 50%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    th, td {
+      padding-left: 40px;padding-right: 40px;border:2px solid gray; width: 200px;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+  <script type="text/javascript">
+    // Load Google Charts
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+      // Parse the table data
+      const taskData = {};
+      const rows = document.querySelectorAll('#ageIdTable tr:not(:first-child)');
+      //Loops through each row in the selected rows.
+      rows.forEach(row => {
+        //Gets the inner HTML of the second cell (tasks) 3rd cell (hours), trims whitespace, and splits it into an array based on line breaks.
+        const tasks = row.cells[1].innerHTML.trim().split('<br>');
+        const hours = row.cells[2].innerHTML.trim().split('<br>');
+
+        tasks.forEach((task, index) => {
+          const taskName = task.trim();
+          const hoursText = hours[index].trim();
+          //Converts the hours text to an integer after removing the " hours" substring.
+          const taskHours = parseInt(hoursText.replace(' hours', ''), 10);
+
+          // Aggregate hours per task
+          if (taskData[taskName]) {
+            taskData[taskName] += taskHours;
+          } else {
+            taskData[taskName] = taskHours;
+          }
+        });
+      });
+
+      // Calculate the weekly average per task
+      const data = [['Task', 'Average Hours']];
+      const daysCount = 7; // since we have a full week in the table
+      for (const [task, totalHours] of Object.entries(taskData)) {
+        data.push([task, totalHours / daysCount]);
+      }
+
+      // Create the data table for Google Charts
+      const chartData = google.visualization.arrayToDataTable(data);
+
+      // Set chart options
+      const options = {
+        title: 'Weekly Average Task Time Breakdown',
+        is3D: true,
+        pieSliceText: 'percentage'
+      };
+
+      // Instantiate and draw the chart
+      const chart = new google.visualization.PieChart(document.getElementById('piechart'));
+      chart.draw(chartData, options);
+    }
+  </script>
+</head>
+<body>
+
+<h2>Weekly Task Table</h2>
+
+<div style="display: flex; gap:130px">
+    <section>
+        <table id="ageIdTable" style="width: 100%;">
+            <tr>
+              <th style="text-align: center;">DAY</th>
+              <th style="text-align: center;">Task</th>
+              <th style="text-align: center;">Time use</th>
+            </tr>
+            <tr>
+              <td>Saturday</td>
+              <td>study <br> watching tv <br> browsing <br> eat <br> reading book</td>
+              <td>2 hours<br> 4 hours <br>6 hours <br>1 hours <br>2 hours</td>
+            </tr>
+            <tr>
+              <td>Sunday</td>
+              <td>study <br> watching tv <br> browsing <br> eat <br> reading book</td>
+              <td>6 hours<br> 2 hours <br>3 hours <br>4 hours <br>2 hours</td>
+            </tr>
+            <tr>
+              <td>Monday</td>
+              <td>study <br> watching tv <br> browsing <br> eat <br> reading book</td>
+              <td>4 hours<br> 5 hours <br>7 hours <br>1 hours <br>1 hours</td>
+            </tr>
+            <tr>
+              <td>Tuesday</td>
+              <td>study <br> watching tv <br> browsing <br> eat <br> reading book</td>
+              <td>2 hours<br> 2 hours <br>4 hours <br>1 hours <br>6 hours</td>
+            </tr>
+            <tr>
+              <td>Wednesday</td>
+              <td>study <br> watching tv <br> browsing <br> eat <br> reading book</td>
+              <td>2 hours<br> 4 hours <br>6 hours <br>1 hours <br>2 hours</td>
+            </tr>
+            <tr>
+              <td>Thursday</td>
+              <td>study <br> watching tv <br> browsing <br> eat <br> reading book</td>
+              <td>6 hours<br> 4 hours <br>1 hours <br>1 hours <br>2 hours</td>
+            </tr>
+            <tr>
+              <td>Friday</td>
+              <td>study <br> watching tv <br> browsing <br> eat <br> reading book</td>
+              <td>2 hours<br> 4 hours <br>4 hours <br>4 hours <br>6 hours</td>
+            </tr>
+          </table>
+    </section>
+    <div style="display: flex; align-items: center; justify-items: center;">
+        <div id="piechart" style="width: 600px; height: 400px;">
+    </div>
+</div>
+</div>
+
+<!-- The container for the pie chart -->
+
+
+</body>
+</html>

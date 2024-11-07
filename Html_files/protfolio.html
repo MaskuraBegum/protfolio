@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+    <style>
+        table {
+          width: 50%;
+          border-collapse: collapse;
+          margin-bottom: 20px;
+        }
+        th, td {
+          padding-left: 40px;padding-right: 40px;border:2px solid gray; width: 200px;
+        }
+        th {
+          background-color: #f2f2f2;
+        }
+      </style>
+      <script type="text/javascript">
+        // Load Google Charts
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+    
+        function drawChart() {
+          // Parse the table data
+          const taskData = {};
+          const rows = document.querySelectorAll('#ageIdTable tr:not(:first-child)');
+          //Loops through each row in the selected rows.
+          rows.forEach(row => {
+            //Gets the inner HTML of the second cell (tasks) 3rd cell (hours), trims whitespace, and splits it into an array based on line breaks.
+            const tasks = row.cells[1].innerHTML.trim().split('<br>');
+            const hours = row.cells[2].innerHTML.trim().split('<br>');
+    
+            tasks.forEach((task, index) => {
+              const taskName = task.trim();
+              const hoursText = hours[index].trim();
+              //Converts the hours text to an integer after removing the " hours" substring.
+              const taskHours = parseInt(hoursText.replace(' hours', ''), 10);
+    
+              // Aggregate hours per task
+              if (taskData[taskName]) {
+                taskData[taskName] += taskHours;
+              } else {
+                taskData[taskName] = taskHours;
+              }
+            });
+          });
+    
+          // Calculate the weekly average per task
+          const data = [['Task', 'Average Hours']];
+          const daysCount = 7; // since we have a full week in the table
+          for (const [task, totalHours] of Object.entries(taskData)) {
+            data.push([task, totalHours / daysCount]);
+          }
+    
+          // Create the data table for Google Charts
+          const chartData = google.visualization.arrayToDataTable(data);
+    
+          // Set chart options
+          const options = {
+            title: 'Weekly Average Task Time Breakdown',
+            is3D: true,
+            pieSliceText: 'percentage'
+          };
+    
+          // Instantiate and draw the chart
+          const chart = new google.visualization.PieChart(document.getElementById('piechart'));
+          chart.draw(chartData, options);
+        }
+      </script>
+</head>
+<body>
+
+
+    <!-- About Section -->
+    <section  id="about" class="container">
+        <div style="display: flex; align-items: center;justify-items: center; gap: 60px; margin-left: 60px; " >
+            <img src="https://i.ibb.co.com/WpzRD1g/f3796375-6492-4ace-a019-006ada1dbba3.jpg" alt="Your Profile Picture" class="profile-image">
+        <div><header>
+            <h1>Maskura Begum</h1>
+            <p>Frontend Developer | Backend Developer</p>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header></div>
+        </div>
+        <h2>About Me</h2>
+        <p style="justify-content: end;">Hi! I'm Maskura Begum, a passionate individual who loves learning, problem-solving, and creating meaningful experiences. My journey has been shaped by curiosity and a deep interest in how things work. Whether it's experimenting with new technologies, exploring creative ideas, or tackling challenges, I enjoy diving into projects that stretch my skills and push me to think outside the box.
+            <ul>
+                <li>I have a strong interest in web development, and I am always seeking opportunities to grow and collaborate with others. I believe in the power of collaboration and the importance of continuous learning.</li>
+                <li>In my free time, I enjoy reading,traveling, etc. and I love engaging with communities that share similar interests.</li>
+            </ul>
+            
+            
+            
+            
+            Feel free to reach out if you want to connect, share ideas, or just chat!
+            
+            .</p>
+
+        <h3>Skills</h3>
+        <ul class="skills-list">
+            <li>JavaScript</li>
+            <li>Python</li>
+            <li>Django</li>
+            <li>React.js</li>
+            <li>HTML & CSS</li>
+            <li>MongoDB</li>
+            <!-- Add other skills as needed -->
+        </ul>
+    </section>
+
+
+    <section id="about" class="container">
+        <h2>Weekly Task Table</h2>
+
+<div >
+    <section>
+        <table id="ageIdTable" style="width: 100%;">
+            <tr>
+              <th style="text-align: center;">DAY</th>
+              <th style="text-align: center;">Task</th>
+              <th style="text-align: center;">Time use</th>
+            </tr>
+            <tr>
+              <td>Saturday</td>
+              <td>study <br> watching tv <br> browsing <br> eat <br> reading book</td>
+              <td>2 hours<br> 4 hours <br>6 hours <br>1 hours <br>2 hours</td>
+            </tr>
+            <tr>
+              <td>Sunday</td>
+              <td>study <br> watching tv <br> browsing <br> eat <br> reading book</td>
+              <td>6 hours<br> 2 hours <br>3 hours <br>4 hours <br>2 hours</td>
+            </tr>
+            <tr>
+              <td>Monday</td>
+              <td>study <br> watching tv <br> browsing <br> eat <br> reading book</td>
+              <td>4 hours<br> 5 hours <br>7 hours <br>1 hours <br>1 hours</td>
+            </tr>
+            <tr>
+              <td>Tuesday</td>
+              <td>study <br> watching tv <br> browsing <br> eat <br> reading book</td>
+              <td>2 hours<br> 2 hours <br>4 hours <br>1 hours <br>6 hours</td>
+            </tr>
+            <tr>
+              <td>Wednesday</td>
+              <td>study <br> watching tv <br> browsing <br> eat <br> reading book</td>
+              <td>2 hours<br> 4 hours <br>6 hours <br>1 hours <br>2 hours</td>
+            </tr>
+            <tr>
+              <td>Thursday</td>
+              <td>study <br> watching tv <br> browsing <br> eat <br> reading book</td>
+              <td>6 hours<br> 4 hours <br>1 hours <br>1 hours <br>2 hours</td>
+            </tr>
+            <tr>
+              <td>Friday</td>
+              <td>study <br> watching tv <br> browsing <br> eat <br> reading book</td>
+              <td>2 hours<br> 4 hours <br>4 hours <br>2 hours <br>6 hours</td>
+            </tr>
+          </table>
+    </section>
+    <div style="display: flex; align-items: center; justify-items: center; padding-left: 80px;">
+        <div id="piechart" style="width: 600px; height: 400px;">
+    </div>
+</div>
+</div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container">
+        <h2>Contact Me</h2>
+        <p>Feel free to reach out to me on any of my social platforms.</p>
+        <ul style="display: flex; padding-left: 280px; gap: 20px;">
+            <li><a href="mailto:maskura.begum77@gmail.com">Email</a></li>
+            <li><a href="https://www.linkedin.com/in/yourusername" target="_blank">LinkedIn</a></li>
+            <li><a href="https://github.com/MaskuraBegum" target="_blank">GitHub</a></li>
+            <!-- Add other social media links -->
+        </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Maskura Begum. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

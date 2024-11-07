@@ -1,0 +1,161 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General body styles */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
+    background-color: #f9f9f9;
+    line-height: 1.6;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Header styling */
+header {
+    text-align: center;
+    padding: 2rem 0;
+    
+    color: #0a0909;
+    margin-bottom: 1.5rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1rem;
+    color: #aaa;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin: 0 1rem;
+}
+
+header nav ul li a {
+    color: #ff6600;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header nav ul li a:hover {
+    color: #ff4500;
+}
+
+/* About section */
+#about {
+    margin-top: 1rem;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    
+}
+
+.profile-image {
+    text-align: center;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#about h2 {
+    font-size: 1.8rem;
+    color: #333;
+    border-bottom: 2px solid #ff6600;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+#about p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+/* Skills styling */
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-items: center;
+    list-style-type: none;
+    padding-left: 80px;
+    margin-top: 1rem;
+}
+
+.skills-list li {
+    
+    background-color: #ff6600;
+    color: #fff;
+    padding: 8px 12px;
+    margin: 5px;
+    border-radius: 3px;
+    font-size: 0.9rem;
+}
+
+/* Contact section styling */
+#contact {
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+#contact h2 {
+    font-size: 1.8rem;
+    color: #333;
+    border-bottom: 2px solid #ff6600;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+#contact ul {
+    list-style: none;
+    padding: 0;
+}
+
+#contact ul li {
+    margin: 0.5rem 0;
+}
+
+#contact ul li a {
+    color: #ff6600;
+    text-decoration: none;
+}
+
+#contact ul li a:hover {
+    color: #ff4500;
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #222;
+    color: #aaa;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic HTML</title>
+    
+</head>
+<body style="background-color: lightblue; text-align: center;">
+    <header>
+        <h1>MY CLASSMATE</h1>
+    </header>
+    <body>
+        <section >
+            <table id="ageIdTable" style="width: 100%;padding: 20px;">
+            <tr>
+              <th>Firstname</th>
+              <th>Lastname</th>
+              <th>Age</th>
+              <th>Address</th>
+            </tr>
+            <tr>
+              <td>Sadia</td>
+              <td>Afrin</td>
+              <td >16</td>
+              <td>Germany</td>
+            </tr>
+            <tr>
+              <td>Shusmita</td>
+              <td>paul</td>
+              <td>24</td>
+              <td>Mexico</td>
+            </tr>
+            <tr>
+                <td>Maria</td>
+                <td>munni</td>
+                <td>21</td>
+                <td>UK</td>
+              </tr>
+              <tr>
+                <td>Faria</td>
+                <td>tabassum</td>
+                <td>23</td>
+                <td>Mexico</td>
+              </tr>
+          </table>
+          <div style="border: 2px solid gray">
+          <h1 style="color: blueviolet;"><p id="avarageAge"></p></h1>
+          </div>
+        </section>
+
+        <section style="margin-top: 40px;">
+            <h1>The responsive image section</h1>
+            <div>
+                <img src="https://i.ibb.co.com/ZhHxbp5/best-boise-furniture-home-decor-stores.jpg" style="max-width:100%;height:auto;">
+            </div>
+        </section>
+        <section>
+            <h1>Different images for different browser window sizes.</h1>
+            <picture>
+                <source srcset="https://i.ibb.co.com/mGsB5r7/images.jpg" media="(max-width: 600px)">
+                <source srcset="https://i.ibb.co.com/J2Y4HFs/images-10.jpg" media="(max-width: 1000px)">
+                
+                <source srcset="https://i.ibb.co.com/rtdQz3L/modern-black-white-home-decor-260nw-1949997076.webp">
+                <img src="https://i.ibb.co.com/rtdQz3L/modern-black-white-home-decor-260nw-1949997076.webp" alt="Flowers">
+              </picture>
+        </section>
+        <script>
+            const ages = Array.from(document.querySelectorAll('#ageIdTable td:nth-child(3)')).map(age => parseInt(age.textContent));
+            console.log(ages);
+            const ageAvarge = ages.reduce((sum,age)=>sum + age,0)/ages.length;
+            console.log(ageAvarge);
+            document.getElementById('avarageAge').innerText = `The avarage age of my classmate is ${ageAvarge}`;
+        
+    </script>
+    </body>
+    <footer>
+
+    </footer>
+    
+</body>
+</html>

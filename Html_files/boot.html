@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    * {
+      box-sizing:border-box;
+    }
+    
+    .left {
+      background-color:#2196F3;
+      padding:20px;
+      float:left;
+      width:30%; /* The width is 20%, by default */
+      height: 180px;
+    }
+    
+    .main {
+      background-color:#f1f1f1;
+      padding:20px;
+      float:left;
+      width:40%; /* The width is 60%, by default */
+      height: 180px;
+    }
+    
+    .right {
+      background-color:#4CAF50;
+      padding:20px;
+      float:left;
+      width:30%; /* The width is 20%, by default */
+      height: 180px;
+    }
+    
+    /* Use a media query to add a break point at 800px: */
+    @media screen and (max-width:800px) {
+     .left  , .main, .right {width:100%;}
+    }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="left">
+        <div id="map" style="width:100%;height:160px;"></div>
+      </div>
+      
+      <div class="main" style="text-align: center; padding-top: 40px;">
+        <h1>My First Bootstrap Page</h1>
+        <p>Resize this page to see the responsive effect!</p>
+      </div>
+      
+      <div class="right">
+        <div id="map1"></div>
+      </div>
+    </div>
+
+    
+  
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 border border-bottom-0 mt-5">
+      <h2>Dhaka</h2>
+      <p>Dhaka is the capital city of Bangladesh, in southern Asia. Set beside the Buriganga River, it’s at the center of national government, trade and culture. The 17th-century old city was the Mughal capital of Bengal, and many palaces and mosques remain. American architect Louis Khan’s National Parliament House complex typifies the huge, fast-growing modern metropolis. the modern city of Bangladesh .</p>
+<div style="text-align: center; margin: 20px;"><img src="https://i.ibb.co.com/MnNYTM6/download-3.jpg" alt="download-3" alt="download-2" ></div>
+
+    </div>
+    <div class="col-sm-4 border border-bottom-0 mt-5">
+      <h2>Chittagong</h2>
+      <p>Chittagong is large port city on the southeastern coast of Bangladesh. The Ethnological Museum has exhibits about the many different ethnic tribes across the country. Zia Memorial Museum, inside the former Old Circuit House, displays items belonging to former president Ziaur Rahman, who was assassinated on the site in 1981. The landmark Chandanpura Mosque has many onion-shaped</p>
+<div style="text-align: center;"><img src="https://i.ibb.co.com/WnqPc8d/download-1.jpg" alt="download-2" ></div>
+    </div>
+    <div class="col-sm-4 border border-bottom-0 mt-5">
+      <h2>Sylhet</h2>
+      <p>Sylhet is a city in eastern Bangladesh, on the Surma River. It’s known for its Sufi shrines, like the ornate tomb and mosque of 14th-century saint Hazrat Shah Jalal, now a major pilgrimage site near Dargah Gate. The tiny Museum of Rajas contains belongings of the local folk poet Hasan Raja. A 3-domed gateway stands at the 17th-century Shahi Eidgah.a huge open-air hilltop mosque built by Emperor Aurangzeb.</p>
+<div style="text-align: center;"><img src="https://i.ibb.co.com/SQ6w79b/download.jpg" alt="download-2" ></div>
+    </div>
+  </div>
+</div>
+<script>
+  function myMap() {
+    var mapCanvas = document.getElementById("map");
+    var mapCanvas1 = document.getElementById("map1");
+    var mapOptions = {
+        center: new google.maps.LatLng(51.5, -0.2),
+        zoom: 10
+    };
+    var map = new google.maps.Map(mapCanvas, mapOptions);
+    var map = new google.maps.Map(mapCanvas1,mapOptions);
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
+</body>
+</html>

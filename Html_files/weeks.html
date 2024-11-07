@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <style>
+        td,th{padding-left: 40px;padding-right: 40px;border:2px solid gray; }
+    </style>
+    <script type="text/javascript">
+        // Load Google Charts
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+    
+        function drawChart() {
+          // Parse the table data
+          const taskData = {};
+          const rows = document.querySelectorAll('#ageIdTable tr:not(:first-child)');
+    
+          rows.forEach(row => {
+            const tasks = row.cells[1].innerHTML.trim().split('<br>');
+            const hours = row.cells[2].innerHTML.trim().split('<br>');
+    
+            tasks.forEach((task, index) => {
+              const taskName = task.trim();
+              const hoursText = hours[index].trim();
+              const taskHours = parseInt(hoursText.replace(' hours', ''), 10);
+    
+              // Aggregate hours per task
+              if (taskData[taskName]) {
+                taskData[taskName] += taskHours;
+              } else {
+                taskData[taskName] = taskHours;
+              }
+            });
+          });
+    
+          // Calculate the weekly average per task
+          const data = [['Task', 'Average Hours']];
+          const daysCount = 7; // since we have a full week in the table
+          for (const [task, totalHours] of Object.entries(taskData)) {
+            data.push([task, totalHours / daysCount]);
+          }
+    
+          // Create the data table for Google Charts
+          const chartData = google.visualization.arrayToDataTable(data);
+    
+          // Set chart options
+          const options = {
+            title: 'Weekly Average Task Time Breakdown',
+            is3D: true,
+            pieSliceText: 'percentage'
+          };
+    
+          // Instantiate and draw the chart
+          const chart = new google.visualization.PieChart(document.getElementById('piechart'));
+          chart.draw(chartData, options);
+        }
+      </script>
+</head>
+<body>
+    <div style="display: flex; gap: 230px;">
+        <section>
+            <table id="ageIdTable" >
+                <tr>
+                  <th style="text-align: center;">DAY</th>
+                  <th style="text-align: center;">task</th>
+                  <th style="text-align: center;">Time use</th>
+                </tr>
+                <tr>
+                  <td>Saturday</td>
+                  <td>study <br>
+                    watching tv <br>
+                    browsing <br>
+                    eat <br>
+                    reading book
+                </td>
+                  <td>2 hours<br>
+                    4 hours <br>4 hours <br>4 hours <br>
+                    6 hours
+                </td>
+                </tr>
+                <tr>
+                  <td>Sunday</td>
+                  <td>study <br>
+                    watching tv <br>
+                    browsing <br>
+                    eat <br>
+                    reading book
+                </td>
+                  <td>2 hours<br>
+                    4 hours <br>
+                    4 hours <br>4 hours <br>
+                    6 hours
+                </td>
+                </tr>
+                <tr>
+                    <td>Monday</td>
+                  <td>study <br>
+                    watching tv <br>
+                    browsing <br>
+                    eat <br>
+                    reading book
+                </td>
+                  <td>2 hours<br>
+                    4 hours <br>4 hours <br>
+                    6 hours
+                </td>
+                  </tr>
+                  <tr>
+                    <td>Tuseday</td>
+                  <td>study <br>
+                    watching tv <br>
+                    browsing <br>
+                    eat <br>
+                    reading book
+                </td>
+                  <td>2 hours<br>
+                    4 hours <br>4 hours <br>4 hours <br>
+                    6 hours
+                </td>
+                  </tr>
+                  <tr>
+                    <td>wednesday</td>
+                  <td>study <br>
+                    watching tv <br>
+                    browsing <br>
+                    eat <br>
+                    reading book
+                </td>
+                  <td>2 hours<br>
+                    4 hours <br>4 hours <br>4 hours <br>
+                    6 hours
+                </td>
+                  </tr>
+                  <tr>
+                    <td>Thrusday</td>
+                  <td>study <br>
+                    watching tv <br>
+                    browsing <br>
+                    eat <br>
+                    reading book
+                </td>
+                  <td>2 hours<br>
+                    4 hours <br>4 hours <br>4 hours <br>
+                    6 hours
+                </td>
+                  </tr>
+                  <tr>
+                    <td>friday</td>
+                  <td>study <br>
+                    watching tv <br>
+                    browsing <br>
+                    eat <br>
+                    reading book
+                </td>
+                  <td>2 hours<br>
+                    4 hours <br>4 hours <br>4 hours <br>
+                    6 hours
+                </td>
+                  </tr>
+              </table>
+        </section>
+        <section>
+            <h1>My avarage week task</h1>
+            <div id="piechart" style="width: 600px; height: 400px;"></div>
+        </section>
+    </div>
+</body>
+</html>
