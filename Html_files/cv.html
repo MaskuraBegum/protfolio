@@ -6,104 +6,158 @@
   <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://kit.fontawesome.com/432cbb984f.js" crossorigin="anonymous"></script>
-<script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
-    <header></header>
-    <body class="container mx-auto">
-        <div>
-            <div class="card card-side bg-base-100 shadow-xl">
-            <figure>
-              <img class="w-80 rounded-full mx-20 m-10"
-                src="https://i.ibb.co.com/WpzRD1g/f3796375-6492-4ace-a019-006ada1dbba3.jpg"
-                alt="Movie" />
-            </figure>
-            <div class="flex item-center justify-center gap-20">
-                <div class="card-body flex item-center justify-center text-xl ">
-                    <div><h2 class="card-title text-3xl"><strong>Name: </strong>Maskura Begum</h2>
-                      <p><strong>Address: </strong>Binshnopur, Cumilla</p></div>
-                    <div>
-                      <p><strong>contact: </strong>01998282899<br>
-                          <strong>Email: </strong>maskura.begum77@gmail.com
-                        </p>
-                    </div>  
-                  </div>
-                  <div class="flex flex-col item-center justify-center gap-4">
-                    <a href=""><i class="fa-brands fa-facebook text-3xl"></i></a>
-                    <a href=""><i class="fa-brands fa-twitter text-3xl"></i></a>
-                    <a href=""><i class="fa-brands fa-linkedin text-3xl"></i></a>
-                    <a href=""><i class="fa-brands fa-github text-3xl"></i></a>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+  <style>
+    @media print {
+  body {
+    background: none;
+  }
 
-                  </div>
+  .card, .collapse {
+    background: white !important;
+  }
+}
+
+  </style>
+</head>
+    <body class="container mx-auto">
+      <div id="pdf-content">
+        <!-- All of your content here -->
+        <div >
+          <div class="card flex-col lg:flex-row card-side bg-base-100  lg:bg-[url('https://i.ibb.co.com/MCtGLYv/d694055779c0a17614c27f1acc017738.jpg')] bg-no-repeat bg-cover shadow-xl">
+          <figure>
+            <img class="w-80 rounded-full mx-20 m-10"
+              src="https://i.ibb.co.com/WpzRD1g/f3796375-6492-4ace-a019-006ada1dbba3.jpg"
+              alt="Movie" />
+          </figure>
+          <div class="flex item-center justify-center gap-20">
+              <div class="card-body flex item-center justify-center text-xl ">
+                  <div><h2 class="card-title text-3xl"><strong>Name: </strong>Maskura Begum</h2>
+                    <p><strong>Address: </strong>Binshnopur, Cumilla</p></div>
+                  <div>
+                    <p><strong>contact: </strong>01998282899<br>
+                        <strong>Email: </strong>maskura.begum77@gmail.com
+                      </p>
+                  </div>  
+                </div class="px-4 lg:px-0">
+                <div class="flex flex-col item-center justify-center gap-4">
+                  <a href=""><i class="fa-brands fa-facebook text-3xl"></i></a>
+                  <a href=""><i class="fa-brands fa-twitter text-3xl"></i></a>
+                  <a href=""><i class="fa-brands fa-linkedin text-3xl"></i></a>
+                  <a href=""><i class="fa-brands fa-github text-3xl"></i></a>
+
+                </div>
+          </div>
+       </div> 
+       <section class="my-20">
+          <div style="background-repeat: no-repeat;" class="card card-side bg-base-100 shadow-xl bg-[url('https://i.ibb.co.com/940G3xB/abstract-white-geometric-banner-design-600nw-2267240389.webp')] reapeat-none opacity-75 bg-cover" >
+              <div class="card-body p-10 lg:p-40 text-xl">
+                <h2 class="card-title text-xl lg:text-3xl font-bold">Career objective!</h2>
+                <p>Aspiring software engineer with a strong foundation in web development, backend systems, and network protocols, seeking to leverage my technical skills and problem-solving abilities in a dynamic development environment. Passionate about building efficient, scalable applications and continuously expanding my knowledge of modern technologies. Looking for opportunities to contribute to innovative projects, enhance my expertise in full-stack development, and grow within a collaborative team.</p>
+              </div>
             </div>
-         </div> 
-         <section class="my-20">
-            <div class="card card-side bg-base-100 shadow-xl">
-                <div class="card-body">
-                  <h2 class="card-title">Career objective!</h2>
-                  <p></p>
-                </div>
+       </section>
+      <section class="container mx-auto ">
+          <div class="collapse collapse-plus bg-[url('https://i.ibb.co.com/MCtGLYv/d694055779c0a17614c27f1acc017738.jpg')] bg-no-repeat bg-cover">
+              <input type="radio" name="my-accordion-3" checked="checked" />
+              <div class="collapse-title text-xl font-medium">Education</div>
+              <div class="collapse-content">
+                <p><div class="overflow-x-auto">
+                  <table class="table">
+                    <!-- head -->
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th>Level</th>
+                        <th>Institue</th>
+                        <th>result</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- row 1 -->
+                      <tr>
+                        <th>1</th>
+                        <td>H.S.C</td>
+                        <td>Bangladesh Gas Field School and Collage</td>
+                        <td>4.91</td>
+                      </tr>
+                      <!-- row 2 -->
+                      <tr>
+                        <th>2</th>
+                        <td>S.S.C</td>
+                        <td>Sabera Sobhan Govt. Girls High school</td>
+                        <td>4.50</td>
+                      </tr>
+                      <!-- row 3 -->
+                      <tr>
+                        <th>3</th>
+                        <td>B.S.C</td>
+                        <td>Bangladesh Army International Science and Technology</td>
+                        <td>3.71</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div></p>
               </div>
-         </section>
-        <section class="container mx-auto">
-            <div class="collapse collapse-plus bg-base-200">
-                <input type="radio" name="my-accordion-3" checked="checked" />
-                <div class="collapse-title text-xl font-medium">Education</div>
-                <div class="collapse-content">
-                  <p><div class="overflow-x-auto">
-                    <table class="table">
-                      <!-- head -->
-                      <thead>
-                        <tr>
-                          <th></th>
-                          <th>Level</th>
-                          <th>Institue</th>
-                          <th>result</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <!-- row 1 -->
-                        <tr>
-                          <th>1</th>
-                          <td>H.S.C</td>
-                          <td>Bangladesh Gas Field School and Collage</td>
-                          <td>4.91</td>
-                        </tr>
-                        <!-- row 2 -->
-                        <tr>
-                          <th>2</th>
-                          <td>S.S.C</td>
-                          <td>Sabera Sobhan Govt. Girls High school</td>
-                          <td>4.50</td>
-                        </tr>
-                        <!-- row 3 -->
-                        <tr>
-                          <th>3</th>
-                          <td>B.S.C</td>
-                          <td>Bangladesh Army International Science and Technology</td>
-                          <td>3.71</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div></p>
-                </div>
+            </div>
+            <div class="collapse collapse-plus bg-[url('https://i.ibb.co.com/MCtGLYv/d694055779c0a17614c27f1acc017738.jpg')] bg-no-repeat bg-cover">
+              <input type="radio" name="my-accordion-3" />
+              <div class="collapse-title text-xl font-medium px-10 text-3xl">Skill</div>
+              <div class="collapse-content">
+                <p>
+                  <ul class="list-disc px-16">
+                    <li>Web Development: Experienced in both front-end and back-end development using React.js, DaisyUI, Node.js, Firebase, and Django. Proficient in working with both SQL (MySQL) and NoSQL (MongoDB) databases.</li>
+                    <li>Backend Development: Skilled in building APIs, handling views and URLs, and managing databases within Django and Python environments.</li>
+                    <li>Linux and Command-Line: Comfortable with Linux operations, command-line scripting, and related tools for software development and deployment</li>
+                    <li>User Authentication and Security: Implemented user authentication systems, including email/password and Google sign-ins, ensuring secure access and user management.
+
+                    </li>
+                    <li>Networking and Protocols: Knowledgeable about protocol layers and application layers in computer networks, with a strong foundation in networking principles.</li>
+                    <li>Version Control (Git): Proficient in Git for version control, collaborating on projects and managing codebases effectively.</li>
+                    <li>Problem Solving: Strong troubleshooting skills and persistence in resolving technical issues, with a proven track record of overcoming challenges in web development and system setup.</li>
+                  </ul>
+                </p>
               </div>
-              <div class="collapse collapse-plus bg-base-200">
-                <input type="radio" name="my-accordion-3" />
-                <div class="collapse-title text-xl font-medium">Skill</div>
-                <div class="collapse-content">
-                  <p>hello</p>
-                </div>
+            </div>
+            <div class="collapse collapse-plus bg-[url('https://i.ibb.co.com/MCtGLYv/d694055779c0a17614c27f1acc017738.jpg')] bg-no-repeat bg-cover">
+              <input type="radio" name="my-accordion-3" />
+              <div class="collapse-title text-xl font-medium">personal info</div>
+              <div class="collapse-content">
+                <p><ul>
+                  <li>Date of Birth: 10/11/2002</li>
+                  <li>Location: Cumilla, Bangladesh</li>
+                  <li>Languages: Fluent in English, Bangla</li>
+                  <li>Interests: Coding, Hiking, Volunteering</li>
+                </ul></p>
               </div>
-              <div class="collapse collapse-plus bg-base-200">
-                <input type="radio" name="my-accordion-3" />
-                <div class="collapse-title text-xl font-medium">personal info</div>
-                <div class="collapse-content">
-                  <p>hello</p>
-                </div>
-              </div>
-        </section>
-    </body>
-    <footer></footer>
+            </div>
+      </section>
+
+      <section class="text-right my-2 p-20">
+        <button id="downloadPDF" class="px-4 py-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 ">
+          Download as PDF
+      </button>
+      </section>
+      </div>
+    </div>
+    <script>
+     window.onload = function() {
+    document.getElementById("downloadPDF").addEventListener("click", function() {
+        const element = document.getElementById("pdf-content");
+        html2pdf()
+            .set({
+                margin: 1,
+                filename: 'portfolio.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 3, backgroundColor: "blue" },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            })
+            .from(element)
+            .save();
+    });
+};
+
+  </script>
 </body>
 </html>

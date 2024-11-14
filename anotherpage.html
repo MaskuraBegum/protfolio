@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Another Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+
+    <!-- Page Content -->
+    <div class="bg-white p-6 rounded-lg shadow-md w-full text-center">
+        <h1 class="text-2xl font-semibold text-gray-700 mb-4">User input table</p>
+        <div >
+            <div class="overflow-x-auto text-lg p-8 text-center">
+                <table class="table w-full">
+                  <!-- head -->
+                  <thead> 
+                    <tr >
+                      <th class=" border-solid border-2 border-indigo-600 p-4"></th>
+                      <th class=" border-solid border-2 border-indigo-600 p-4">Name</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- row 1 -->
+                    <tr>
+                      <td class=" border-solid border-2 border-indigo-600 p-4">Name</td>
+                      <td class=" border-solid border-2 border-indigo-600 p-4"><input type="text" name="" id=""></td>
+                    </tr>
+                    <!-- row 2 -->
+                    <tr>
+                      <td class=" border-solid border-2 border-indigo-600 p-4">jobtitel</td>
+                      <td class=" border-solid border-2 border-indigo-600 p-4"><label for="cars" class="w-full">
+
+                      </label>
+
+                        <select class="px-12 py-2" name="cars" id="cars">
+                          <option value="select your job">select your job</option>
+                          <option value="">software engineer</option>
+                          <option value="mercedes">data analysist</option>
+                          <option value="audi">network Security</option>
+                        </select></td>
+                    </tr>
+                    <!-- row 3 -->
+                    <tr>
+                      <td class=" border-solid border-2 border-indigo-600 p-4">industry</td>
+                      <td class=" border-solid border-2 border-indigo-600 p-4"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 hidden">
+        <div class="bg-white p-8 rounded-lg text-center w-full max-w-sm">
+            <h3 class="text-xl font-semibold text-green-600 mb-4">Success!</h3>
+            <p class="mb-4"></p>
+            <button onclick="closeModal()" class="px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Function to open the modal
+        function openModal() {
+            document.getElementById("successModal").classList.remove("hidden");
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            document.getElementById("successModal").classList.add("hidden");
+        }
+
+        // Simulate a successful login and show the modal automatically
+        window.onload = function() {
+            // Here, you can check if the user is logged in successfully (e.g., by checking a flag or session)
+            // For demo, we're simulating a successful login with a timeout
+            setTimeout(function() {
+                openModal();  // Open modal after successful login
+            }, 500);  // Delay to simulate login process
+        };
+    </script>
+
+</body>
+</html>
